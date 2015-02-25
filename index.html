@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>no conflict</title>
+    <style>
+        div {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $j = $.noConflict();
+    $j(document).ready(function(){
+        $j("img").css({
+            border: "5px solid blue"
+        });
+    });
+</script>
+
+<img src="gelb.jpg">
+
+
+</body>
+</html>

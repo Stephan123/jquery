@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>bind / unbind in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+
+    <style lang="text/css" rel="stylesheet">
+
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("p").click(function () {
+
+            $("p").on("myPara", function (event, param1, param2, param3)
+            {
+                alert(param1 + "\n" + param2 + "\n" + param3);
+            });
+
+            $("p").trigger("myPara", ['Pass', 'Along', 'Parameters']);
+        });
+    });
+</script>
+
+<h1>trigger</h1>
+
+<p>Click to alert additional parameters.</p>
+
+</body>
+</html>

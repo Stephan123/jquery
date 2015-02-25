@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selectoren in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(":text").css({background: 'blue'});
+        $(":radio").each(function(){
+            alert($(this).val());
+        });
+        $(":radio").wrap("<span style='background-color: red'>");
+
+
+    });
+</script>
+
+<h1>Formular Filter</h1>
+
+    <form>
+        Vorname: <input type="text" name="vorname"><br>
+        Name: <input type="text" name="name"><br>
+        Ort: <input type="text" name="Ort"><br>
+        Wert: <textarea cols="30" rows="10"></textarea><br>
+        Passwort: <input type="password"><br>
+
+        <select>
+            <option>111</option>
+            <option>222</option>
+            <option>333</option>
+        </select>
+        <br>
+        <input type="checkbox" value="1"><br>
+        <input type="checkbox" value="2"><br>
+
+        <input type="radio" value="1" name="bla">
+        <input type="radio" value="2" name="bla">
+        <br>
+
+        <input type="submit" value="senden">
+    </form>
+
+</body>
+</html>

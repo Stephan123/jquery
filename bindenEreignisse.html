@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>bind / unbind in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+
+    <style lang="text/css" rel="stylesheet">
+        textarea{
+            border: solid cyan 1px;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(function(){
+
+            function zuzuschalten(){
+                $('#blub').bind('click', function(){
+                    alert('Textarea');
+                });
+            }
+
+            $("button:first").click(function(){
+                zuzuschalten();
+            });
+
+        }
+    );
+</script>
+
+<h1>bind() / unbind() Events</h1>
+
+    <button> bind() </button> <br>
+    <textarea id="blub" style="width: 300px; height: 300px; border: solid 1px green;">Hallo !!!</textarea>
+</body>
+</html>

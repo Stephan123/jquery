@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selectoren in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(
+        function(){
+            $("img").click(function(e){
+                var test = {
+                    type: e.type,
+                    target: e.target,
+                    which: e.which,
+                    knoten: e.target.nodeName,
+                    daten: e.data,
+                    // mauszeiger: e.related.nodeName
+                    mausKoordX: e.pageX,
+                    mausKoordY: e.pageY,
+                    bildschirmKoordX: e.screenX,
+                    bildschirmKoordY: e.screenY,
+                    letzteWertEventHandler: e.result,
+                    timeStamp: e.timeStamp
+                };
+
+                console.dir(test);
+
+
+                $("#info").html(e.type);
+            });
+
+            $("a:first").click(function(e){
+                e.preventDefault();
+                $("#info").html('Stop Event: ');
+                var test = e.isDefaultPrevented();
+                $("#info").append(test);
+            });
+        }
+    );
+</script>
+
+<h1>Events</h1>
+
+    <img src="gelb.jpg"> <br>
+    <button>Click</button> <br>
+
+    <span id="info">keine Information</span> <br>
+    <a href="http://www.google.de">ein Link</a>
+</body>
+</html>

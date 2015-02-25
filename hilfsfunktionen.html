@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hilfsfunktionen in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+   $("document").ready(function(){
+
+       $( "#test" ).toggle(function() {
+            $(this).css({
+                width: '300px',
+                height: '300px'
+            });
+       });
+
+   });
+</script>
+
+<h1>Hilfsfunktionen hover() / </h1>
+
+<img src="gelb.jpg" alt="Bla">
+<div id="info"></div>
+<div id="test" style="width: 400px; height: 400px; border: 1px solid red">Click here</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selectoren in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        // $("td:parent").css({color: 'green'});
+
+        $("td:even").css({color: 'red'});
+        $(":empty").css({border: 'solid 3px black'});
+
+        $("td:contains(555)").css({color: 'red'});
+
+
+    });
+
+
+
+</script>
+
+<h1 class="bla"><div class="blub">Inhaltsfilter</div></h1>
+
+<table>
+    <tr><td>000</td></tr>
+    <tr><td>111</td></tr>
+    <tr><td>222</td></tr>
+    <tr><td>333</td></tr>
+    <tr><td>444</td></tr>
+    <tr><td></td></tr>
+    <tr><td>555</td></tr>
+    <tr><td>666</td></tr>
+    <tr><td>777</td></tr>
+    <tr><td>888</td></tr>
+</table>
+</body>
+</html>

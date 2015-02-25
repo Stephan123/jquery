@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery.data demo</title>
+    <style>
+        div {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div>
+    Inhalt gespeichert:
+    <span id="anzeige"></span>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $("button:eq(0)").on('click', storeAnlegen);
+        $("button:eq(1)").on('click', storeFuellen);
+        $("button:eq(2)").on('click', storeFuellenMulti);
+        $("button:eq(3)").on('click', anzeigen);
+        $("button:eq(4)").on('click', storeLeeren);
+    });
+
+    // Store anlegen
+    function storeAnlegen() {
+        $("div").data("store");
+    }
+
+    // Store fuellen Array
+    function storeFuellen() {
+        $("div").data('store', {
+            bla: 'Bla',
+            blub: 'Blub'
+        });
+
+        var data = $("div").data('store');
+        $("#anzeige").html(data.bla);
+    }
+
+    // Store fuellen Array
+    function storeFuellenMulti() {
+
+        var inhalt = [];
+        for (var i = 0; i < 100; i++) {
+            var row = [];
+            for (var j = 0; j < 100; j++) {
+                row['spalte' + j] = i + ' : ' + j;
+            }
+            inhalt[i] = row;
+        }
+
+        $("div").data('store', inhalt);
+
+        var data = $("div").data('store');
+        // console.dir(data);
+
+        $("#anzeige").html(data[5]['spalte11']);
+    }
+
+    // anzeigen
+    function anzeigen() {
+        var data = $("div").data('store');
+
+        $("#anzeige").html(data[3]['spalte8']);
+    }
+
+    function storeLeeren() {
+        $("#anzeige").html('');
+        $("div").removeData('store');
+
+        // var data = $("div").data('store');
+        // $("#anzeige").html(data[3]['spalte8']);
+    }
+
+
+</script>
+<hr>
+    <button>Store anlegen</button>
+    <button>Store fuellen</button>
+    <button>Store fuellen multi</button>
+    <button>anzeigen</button>
+    <button>Store leeren</button>
+<hr>
+
+<p>Results: </p>
+
+<script>
+    var $p = $("p");
+    var daten = $p[0];
+
+    $p.append($.hasData(daten) + " "); // false
+
+    $.data(daten, "testing", 123);
+    $p.append($.hasData(daten) + " "); // true
+
+    $.removeData(daten, "testing");
+    $p.append($.hasData(daten) + " "); // false
+
+    $p.on("click", function () {
+        alert('klick');
+    });
+
+    $p.append($.hasData(daten) + " "); // true
+    $p.off("click");
+
+    $p.append($.hasData(daten) + " "); // false
+</script>
+</body>
+</html>

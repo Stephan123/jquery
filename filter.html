@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Filter in JQuery</title>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(":input").css({
+            border: 'solid 1px blue'
+        });
+
+        $('form input:checkbox:first').parent().append('Blub').css({
+            color: 'red',
+            backgroundColor: 'yellow'
+        });
+
+        $("form input:checkbox").not('#reg_checkbox').css({
+            outlineColor: 'blue',
+            outlineStyle: 'solid',
+            outlineWidth: 'thin'
+        });
+
+//        $("span").slice(1,3).css({
+//            color: 'red'
+//        });
+
+        $("span").filter(function(index){
+            if(index == 2)
+                return true;
+            else
+                return false;
+        }).css({
+            color: 'red'
+        });
+
+
+    });
+
+
+</script>
+
+<h1>Formularfilter und Filtermethoden in JQuery</h1>
+<form>
+    <input type="text" name="name"><br>
+    <input type="text" name="vorname"><br>
+    <input type="checkbox" name="click" id="reg_checkbox"><br>
+    <input type="checkbox" name="bla" id="bla"><br>
+
+    <input type="submit" name="senden" value="senden">
+</form>
+
+<span>aaaaaaaaaa</span><br>
+<span id="blub">bbbbbbbbbb</span><br>
+<span>cccccccccc</span><br>
+<span>dddddddddd</span><br>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Extending in JQuery</title>
+    <style>
+        div {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    $.fn.extend({
+        blau: function () {
+            return this.each(function () {
+                this.style.color = 'blue';
+            });
+        },
+        rot: function () {
+            return this.each(function () {
+                this.style.color = 'red';
+            });
+        },
+        gruen: function () {
+            return this.each(function () {
+                this.style.color = 'green';
+            });
+        }
+    });
+
+    $(document).ready(function () {
+        $("h1").rot();
+        $("h2").gruen();
+        jQuery("h3").blau();
+    });
+
+
+</script>
+
+<h1>AAAAA</h1>
+
+<h2>BBBBB</h2>
+
+<h3>CCCCC</h3>
+
+</body>
+</html>

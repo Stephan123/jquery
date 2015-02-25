@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Prototyping in Javascript</title>
+    <style>
+        div {
+            color: blue;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    var wert;
+
+    $(document).ready(function()
+    {
+        // Prototype
+        function person(first, last, age, eyecolor) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eyecolor;
+            this.name = function() {return this.firstName + " " + this.lastName;};
+        }
+
+        // erstellen Objekte
+        var myFather = new person("John", "Doe", 50, "blue");
+        var myMother = new person("Sally", "Rally", 48, "green");
+
+        // hinzufügen einer Eigenschaft zum Objekt
+        myFather.nationality = "English";
+
+        // hinzufügen einer Methode zum Objekt
+        myFather.name = function(){
+            return this.firstName + ' ' + this.lastName;
+        };
+
+        // Eigenschaft zum Prototype hinzufügen
+        person.prototype.nationality = 'China';
+
+        // Test
+        console.dir(person.prototype);
+
+        console.log(myFather.nationality);
+        console.log(person.prototype.nationality);
+
+
+
+    });
+
+
+</script>
+
+</body>
+</html>
